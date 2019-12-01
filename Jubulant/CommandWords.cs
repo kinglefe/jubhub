@@ -1,11 +1,11 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 namespace Jubulant
 {
     public class CommandWords
     {
         Dictionary<string, Command> commands;
-        private static Command[] commandArray = { new GoCommand(), new QuitCommand(), new SpeakCommand(), new BankCommand()};
+        private static Command[] commandArray = { new GoCommand(), new QuitCommand(), new SpeakCommand(), new BankCommand(), new BuyCommand(), new EatCommand() };
 
         public CommandWords() : this(commandArray)
         {

@@ -55,7 +55,6 @@ namespace Jubulant
             {
                 exitNames += " " + exitName;
             }
-
             return exitNames;
         }
 

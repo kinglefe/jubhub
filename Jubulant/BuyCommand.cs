@@ -13,7 +13,7 @@ namespace Jubulant
         {
             if (this.hasSecondWord())
             {
-                player.outputMessage(this.secondWord);
+                player.buy(this.secondWord);
             }
             else
             {

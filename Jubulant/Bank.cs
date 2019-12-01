@@ -20,25 +20,25 @@ namespace Jubulant
             Balance = 100.0;
         }
 
-        void addPoints(double points)
+        public void addPoints(double points)
         {
             Balance += points;
         }
-        void addPoints(int points)
+        public void addPoints(int points)
         {
             Balance += points;
         }
 
-        void withdrawPoints(double points)
+        public void withdrawPoints(double points)
         {
             Balance -= points;
         }
-        void withdrawPoints(int points)
+        public void withdrawPoints(int points)
         {
             Balance -= points;
         }
 
-        double getBalance()
+        public double getBalance()
         {
             return Balance;
         }

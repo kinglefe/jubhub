@@ -7,24 +7,35 @@ namespace Jubulant
         public string ItemName { get; set; }
 
         public int price;
-        
 
-        private bool canBuy;
-        public bool CanBuy { get; set; }
 
+        private int healthScore;
+        public int HealthScore { get; set; }
+
+        public int quantity { get; set; }
 
         public Item() : this("No Item")
         {
         }
-        public Item(string _itemName) : this(_itemName, 0, true)
+        public Item(string _itemName) : this(_itemName, 0, 10, 1)
         {
 
         }
-        public Item(string _itemName, int _price, bool _canBuy) 
+        public Item(string _itemName, int _price, int _healthPoints, int _quantity) 
         {
             ItemName = _itemName;
             price = _price;
-            CanBuy = _canBuy;
+            HealthScore = _healthPoints;
+            quantity = _quantity; 
+        }
+
+        public void decrease(int points)
+        {
+            quantity -= points;   
+        }
+        public void increase(int points)
+        {
+            quantity += points;
         }
     }
 }
