@@ -4,21 +4,20 @@ namespace Jubulant
 {
     public class Scenario
     {
-        private string _scenario;
         public string _Scenario { get; set; }
-        private string[] answers;
+        public List<int> answers;
+        public Star star;
+        
 
-        private int points;
-
-        public Scenario(string _question, string[] _answer, int _points)
+        public Scenario(string _question, List<int> _answer)
         {
 
-            _Scenario = _question;
-            answers = _answer;
-            points = _points;
+            this._Scenario = _question;
+            this.answers = _answer;
         }
+        
 
-        public string[] getAnswers()
+        public List<int> getAnswers()
         {
             return answers;
         }

@@ -10,7 +10,7 @@ namespace Jubulant
         public Game()
         {
             //GameWorld gameWorld = new GameWorld();
-            playing = false;
+            this.playing = false;
             parser = new Parser(new CommandWords());
             player = new Player(GameWorld.Instance.Entrance);
         }

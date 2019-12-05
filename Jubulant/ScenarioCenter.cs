@@ -1,58 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 namespace Jubulant
 {
     public class ScenarioCenter
     {
-        List<Scenario> scenarios;
-        private static ScenarioCenter _instance;
-        public static ScenarioCenter Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new ScenarioCenter();
-                }
-                return _instance;
-            }
-        }
+        public List<Scenario> scenarios;
+        public Scenario currentScenario;
         
         public ScenarioCenter()
         {
             scenarios = new List<Scenario>();
             
+            
         }
 
-        
-        public void addScenario(string _question, string[] _answer, int _points)
+
+        public void addScenario( Scenario scenario)
         {
-            scenarios.Add(new Scenario(_question, _answer, _points));
+            scenarios.Add(scenario);
         }
+
         public void removeScenario(Scenario scenario)
         {
             scenarios.Remove(scenario);
+            
         }
-        public void display()
-        {
-            foreach (Scenario scenario in scenarios)
-            {
-                user.outputMessage("Answer with the 'answer' command (1,2,3)");
-                user.outputMessage(scenario._Scenario);
-
-                List<String> answ = scenario.getAnswers();
-                foreach (string res in answ)
-                {
-                    user.outputMessage("Choice: " + res);
-
-                }
-                removeScenario(scenario);
-            } 
-        }
+        
        
     }
-
-    
 }
 /* this class should
  * be able to create scenarios

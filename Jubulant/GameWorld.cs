@@ -16,25 +16,25 @@ namespace Jubulant
         }
         private Room _entrance;
         public Room Entrance { get { return _entrance; } }
-        private Room trigger;
+        
         private GameWorld()
         {
             _entrance = createWorld();
             // GameWorld subscribes to the notification PlayerEnteredRoom
-            NotificationCenter.Instance.addObserver("PlayerEnteredRoom", playerEnteredRoom);
+            //NotificationCenter.Instance.addObserver("PlayerEnteredRoom", playerEnteredRoom);
         }
 
         private Room createWorld()
         {
             // setting up the rooms 
-            Room home = new Room("at home", "home");
-            Room school = new Room("getting some good ole education at school.", "school");
+            Home home = new Home("at home", "home");
+            School school = new School("getting some good ole education at school.", "school");
             Market market = new Market("shopping in the market.", "market");
-            Room bank = new Room("at the bank.", "bank");
-            Room blackMarket = new Room("at the Black Market", "blackMarket");
-            Room work = new Room("at work running up a check.", "work");
-            Room mall = new Room("at the local Mall", "mall");
-            Room hospital = new Room("at the hospital", "hospital");
+            BankRoom bank = new BankRoom("at the bank.", "bank");
+            blackMarketVendor blackMarket = new blackMarketVendor("at the Black Market", "blackMarket");
+            WorkPlace work = new WorkPlace("at work running up a check.", "work");
+            Mall mall = new Mall("at the local Mall", "mall");
+            Hospital hospital = new Hospital("at the hospital", "hospital");
 
 
             // setting up the exits
@@ -69,59 +69,10 @@ namespace Jubulant
             work.setExit(blackMarket.shortName, blackMarket);
             blackMarket.setExit(work.shortName, work);
 
-            /*Room outside = new Room("outside the main entrance of the university");
-            Room cctparking = new Room("in the parking lot at CCT");
-            Room boulevard = new Room("on the boulevard");
-            Room universityParking = new Room("in the parking lot at University Hall");
-            Room parkingDeck = new Room("in the parking deck");
-            Room cct = new Room("in the CCT building");
-            Room theGreen = new Room("in the green in from of Schuster Center");
-            Room universityHall = new Room("in University Hall");
-            Room schuster = new Room("in the Schuster Center");
-
-            outside.setExit("west", boulevard);
-
-            boulevard.setExit("east", outside);
-            boulevard.setExit("south", cctparking);
-            boulevard.setExit("west", theGreen);
-            boulevard.setExit("north", universityParking);
-
-            cctparking.setExit("west", cct);
-            cctparking.setExit("north", boulevard);
-
-            cct.setExit("east", cctparking);
-            cct.setExit("north", schuster);
-
-            schuster.setExit("south", cct);
-            schuster.setExit("north", universityHall);
-            schuster.setExit("east", theGreen);
-
-            theGreen.setExit("west", schuster);
-            theGreen.setExit("east", boulevard);
-
-            universityHall.setExit("south", schuster);
-            universityHall.setExit("east", universityParking);
-
-            universityParking.setExit("south", boulevard);
-            universityParking.setExit("west", universityHall);
-            universityParking.setExit("north", parkingDeck);
-
-            parkingDeck.setExit("south", universityParking);
-
-            trigger = parkingDeck;
-
-            return outside; */
             return home;
         }
 
         // callback method for PlayerEnteredRoom
-        public void playerEnteredRoom(Notification notification)
-        {
-            Player player = (Player)notification.Object;
-            if (player.currentRoom == trigger)
-            {
-                Console.WriteLine("Player entered the trigger room");
-            }
-        }
+        //d 
     }
 }

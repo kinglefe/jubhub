@@ -6,6 +6,9 @@ namespace Jubulant
     {
         private Dictionary<string, Room> exits;
         //private Dictionary<string, iItem> items;
+        public List<Item> roomInventory;
+        public List<Scenario> scenarioBox;
+        public Scenario currentScenario;
         private string _tag;
         public string Tag
         {
@@ -34,6 +37,8 @@ namespace Jubulant
             exits = new Dictionary<string, Room>();
             this.Tag = _tag;
             this.shortName = shortName;
+            scenarioBox = new List<Scenario>();
+            roomInventory = new List<Item>();
         }
         public void setExit(string exitName, Room room)
         {
@@ -58,7 +63,36 @@ namespace Jubulant
             return exitNames;
         }
 
-        
+        public void displayRoomInventory()
+        {
+            if (roomInventory.Count > 0)
+            {
+                Console.WriteLine("Room Inventory: \n");
+                foreach (Item i in roomInventory)
+                {
+                    Console.WriteLine("\t" + i.ItemName);
+                }
+            } else
+            {
+                Console.WriteLine("There is no inventory in " + shortName);
+            }
+        }
+        public void displayScenarios()
+        {
+            if (scenarioBox.Count != 0)
+            {
+                Random rand = new Random();
+                currentScenario = scenarioBox[rand.Next(0, 2)];
+
+                Console.WriteLine(currentScenario._Scenario);
+            }
+            else
+            {
+                Console.WriteLine("No scenarios in this room.");
+            }
+            
+        }
+
         public string description()
         {
             return "You are " + this.Tag + ".\n *** " + this.getExits();

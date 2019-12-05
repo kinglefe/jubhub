@@ -5,7 +5,7 @@ namespace Jubulant
     public class CommandWords
     {
         Dictionary<string, Command> commands;
-        private static Command[] commandArray = { new GoCommand(), new QuitCommand(), new SpeakCommand(), new BankCommand(), new BuyCommand(), new EatCommand() };
+        private static Command[] commandArray = { new GoCommand(), new QuitCommand(), new SpeakCommand(), new BankCommand(), new BuyCommand(), new BackCommand(), new AnswerCommand() };
 
         public CommandWords() : this(commandArray)
         {

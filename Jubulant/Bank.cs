@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Jubulant
 {
-    public class Bank
+    public class Bank 
     {
         private double _balance;
         public double Balance
